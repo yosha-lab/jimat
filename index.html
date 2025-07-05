@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jimat Terlarang</title>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+
+    body {
+      background: #0a0a0a url('https://i.ibb.co/xGxdqMN/dark-texture.png') repeat;
+      color: #f44336;
+      font-family: 'Creepster', cursive;
+      text-align: center;
+      padding: 30px;
+      font-size: 24px;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 48px;
+      text-shadow: 0 0 10px red;
+      animation: shakeText 0.15s infinite;
+    }
+
+    @keyframes shakeText {
+      0% { transform: translateX(-1px); }
+      50% { transform: translateX(1px); }
+      100% { transform: translateX(-1px); }
+    }
+
+    .content {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(0,0,0,0.7);
+      padding: 30px;
+      border: 2px solid red;
+      box-shadow: 0 0 20px red;
+      position: relative;
+      z-index: 1;
+    }
+
+    .darah {
+      position: absolute;
+      width: 30px;
+      height: 60px;
+      background: red;
+      border-radius: 50%;
+      top: -80px;
+      left: 60%;
+      animation: netes 2.5s infinite ease-in;
+      opacity: 0.8;
+      z-index: 0;
+    }
+
+    @keyframes netes {
+      0% {
+        top: -80px;
+        opacity: 0.8;
+        transform: scaleY(0.5);
+      }
+      90% {
+        top: 100%;
+        opacity: 0.2;
+        transform: scaleY(1);
+      }
+      100% {
+        top: 100%;
+        opacity: 0;
+        transform: scaleY(1);
+      }
+    }
+
+    #jumpscare {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      z-index: 9999;
+      display: none;
+    }
+
+    #jumpscare img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      animation: shake 0.2s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(2px, -2px); }
+      25% { transform: translate(-3px, 3px); }
+      50% { transform: translate(3px, -1px); }
+      75% { transform: translate(-2px, 2px); }
+      100% { transform: translate(0, 0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="darah"></div>
+
+  <div class="content">
+    <h1>Jimat Terlarang</h1>
+    <p>
+      Dulu... di sebuah desa terpencil, ada seorang dukun tua yang menciptakan jimat penolak kematian.<br><br>
+      Tapi siapa pun yang menyimpannya... malah menemui nasib lebih buruk.  
+      Konon, setelah 3 hari, pemilik jimat akan melihat sosok wanita berdiri di cermin kamar mereka.<br><br>
+      Jika kamu membaca ini sampai habis... maka kamu juga sudah ditandai.<br><br>
+      Jangan lihat ke belakang...
+    </p>
+  </div>
+
+  <div id="jumpscare">
+    <img src="jumpscare1.png" alt="BOOM">
+    <audio id="scream" autoplay>
+      <source src="scream.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      document.getElementById("jumpscare").style.display = "block";
+      document.getElementById("scream").play();
+    }, 7000); // waktu delay sebelum jumpscare
+  </script>
+</body>
+</html>
